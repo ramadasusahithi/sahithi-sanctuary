@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as NavachitrikaRouteImport } from './routes/navachitrika'
 import { Route as OrganizationRouteImport } from './routes/organization'
 import { Route as ServicesRouteImport } from './routes/services'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NavachitrikaRoute = NavachitrikaRouteImport.update({
+  id: '/navachitrika',
+  path: '/navachitrika',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrganizationRoute = OrganizationRouteImport.update({
@@ -38,12 +44,14 @@ const ServicesRoute = ServicesRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/navachitrika': typeof NavachitrikaRoute
   '/organization': typeof OrganizationRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/navachitrika': typeof NavachitrikaRoute
   '/organization': typeof OrganizationRoute
   '/services': typeof ServicesRoute
 }
@@ -51,20 +59,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/navachitrika': typeof NavachitrikaRoute
   '/organization': typeof OrganizationRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/organization' | '/services'
+  fullPaths: '/' | '/about' | '/navachitrika' | '/organization' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/organization' | '/services'
-  id: '__root__' | '/' | '/about' | '/organization' | '/services'
+  to: '/' | '/about' | '/navachitrika' | '/organization' | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/navachitrika'
+    | '/organization'
+    | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  NavachitrikaRoute: typeof NavachitrikaRoute
   OrganizationRoute: typeof OrganizationRoute
   ServicesRoute: typeof ServicesRoute
 }
@@ -83,6 +99,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/navachitrika': {
+      id: '/navachitrika'
+      path: '/navachitrika'
+      fullPath: '/navachitrika'
+      preLoaderRoute: typeof NavachitrikaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/organization': {
@@ -105,6 +128,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  NavachitrikaRoute: NavachitrikaRoute,
   OrganizationRoute: OrganizationRoute,
   ServicesRoute: ServicesRoute,
 }
