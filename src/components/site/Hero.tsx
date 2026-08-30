@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { logoUrl, org, publications } from "@/data/site";
 
 const teluguGlyphs = ["అ", "క", "మ", "ద", "సా", "హి", "త్య", "ర"];
@@ -87,19 +88,19 @@ export function Hero() {
           </ul>
 
           <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href="#services"
+            <Link
+              to="/about"
               className="btn-premium rounded-full px-7 py-3.5 text-xs font-bold tracking-[0.2em] text-maroon-deep uppercase"
               style={{ background: "var(--gradient-gold)" }}
             >
-              Explore Our Work
-            </a>
-            <a
-              href="#navachitrika"
+              Explore About Us
+            </Link>
+            <Link
+              to="/navachitrika"
               className="btn-premium glass-panel rounded-full px-7 py-3.5 text-xs font-bold tracking-[0.2em] text-gold-soft uppercase"
             >
-              View Navachitrika
-            </a>
+              Read Navachitrika
+            </Link>
           </div>
         </div>
 

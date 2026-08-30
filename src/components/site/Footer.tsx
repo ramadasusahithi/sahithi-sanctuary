@@ -1,4 +1,5 @@
 import { Instagram, Mail, Phone, Youtube } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { logoUrl, navItems, org, socials } from "@/data/site";
 
 export function Footer() {
@@ -33,13 +34,13 @@ export function Footer() {
             </h3>
             <ul className="mt-5 space-y-2">
               {navItems.map((item) => (
-                <li key={item.id}>
-                  <a
-                    href={`#${item.id}`}
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
                     className="text-[0.7rem] font-semibold tracking-[0.16em] text-ivory/70 uppercase transition-colors hover:text-gold"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
