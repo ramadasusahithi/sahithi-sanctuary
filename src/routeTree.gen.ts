@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AwardsRouteImport } from './routes/awards'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as NavachitrikaRouteImport } from './routes/navachitrika'
 import { Route as OrganizationRouteImport } from './routes/organization'
@@ -30,6 +31,11 @@ const AboutRoute = AboutRouteImport.update({
 const AwardsRoute = AwardsRouteImport.update({
   id: '/awards',
   path: '/awards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/awards': typeof AwardsRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/navachitrika': typeof NavachitrikaRoute
   '/organization': typeof OrganizationRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/awards': typeof AwardsRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/navachitrika': typeof NavachitrikaRoute
   '/organization': typeof OrganizationRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/awards': typeof AwardsRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/navachitrika': typeof NavachitrikaRoute
   '/organization': typeof OrganizationRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/awards'
+    | '/contact'
     | '/gallery'
     | '/navachitrika'
     | '/organization'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/awards'
+    | '/contact'
     | '/gallery'
     | '/navachitrika'
     | '/organization'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/awards'
+    | '/contact'
     | '/gallery'
     | '/navachitrika'
     | '/organization'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AwardsRoute: typeof AwardsRoute
+  ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   NavachitrikaRoute: typeof NavachitrikaRoute
   OrganizationRoute: typeof OrganizationRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/awards'
       fullPath: '/awards'
       preLoaderRoute: typeof AwardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AwardsRoute: AwardsRoute,
+  ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   NavachitrikaRoute: NavachitrikaRoute,
   OrganizationRoute: OrganizationRoute,
