@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { logoUrl, navItems, org } from "@/data/site";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -13,43 +15,49 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
           ? "border-b border-gold/25 bg-maroon-deep/85 backdrop-blur-xl"
-          : "bg-transparent"
+          : "bg-maroon-deep/35 backdrop-blur-sm"
       }`}
     >
       <nav className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-        <a href="#home" className="flex min-w-0 items-center gap-3">
+        <Link to="/" className="flex min-w-0 items-center gap-3">
           <img
             src={logoUrl}
             alt={`${org.nameEn} logo`}
             className="h-12 w-12 shrink-0 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]"
           />
           <span className="min-w-0">
-            <span className="block truncate text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-gold">
+            <span className="block truncate text-[0.68rem] font-semibold tracking-[0.24em] text-gold uppercase">
               Ramadasu Sahithi
             </span>
-            <span
-              lang="te"
-              className="block truncate text-sm font-semibold text-ivory/90"
-            >
+            <span lang="te" className="block truncate text-sm font-semibold text-ivory/90">
               కళా సేవా సంస్థ
             </span>
           </span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-1 xl:flex">
           {navItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                className="relative block rounded-md px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ivory/80 transition-colors hover:text-gold"
+            <li key={item.to}>
+              <Link
+                to={item.to}
+                activeOptions={{ exact: item.to === "/" }}
+                className="relative block rounded-md px-3 py-2 text-[0.7rem] font-semibold tracking-[0.16em] text-ivory/80 uppercase transition-colors hover:text-gold"
+                activeProps={{
+                  className:
+                    "relative block rounded-md px-3 py-2 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-gold bg-gold/10 ring-1 ring-gold/40",
+                }}
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -69,14 +77,19 @@ export function Navbar() {
         <div className="border-t border-gold/20 bg-maroon-deep/95 backdrop-blur-xl xl:hidden">
           <ul className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
             {navItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  href={`#${item.id}`}
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  activeOptions={{ exact: item.to === "/" }}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-gold/10 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-ivory/85 last:border-b-0"
+                  className="block border-b border-gold/10 py-3 text-xs font-semibold tracking-[0.2em] text-ivory/85 uppercase last:border-b-0"
+                  activeProps={{
+                    className:
+                      "block border-b border-gold/10 py-3 text-xs font-semibold tracking-[0.2em] uppercase text-gold last:border-b-0",
+                  }}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
