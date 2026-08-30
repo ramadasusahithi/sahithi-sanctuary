@@ -1,5 +1,5 @@
 import { Clock, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
-import { org, socials } from "@/data/site";
+import { org, socials, whatsappUrl } from "@/data/site";
 import { Reveal, SectionHeading } from "./Reveal";
 
 export function Contact() {
@@ -73,6 +73,20 @@ export function Contact() {
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={80}>
+          <div className="mt-10 text-center">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-premium inline-flex items-center gap-3 rounded-full px-8 py-4 text-xs font-bold tracking-[0.2em] text-maroon-deep uppercase"
+              style={{ background: "linear-gradient(140deg, #25D366, #128C7E)", color: "#fff" }}
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
+        </Reveal>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <Reveal>

@@ -21,16 +21,18 @@ export const org = {
   addressTe: ["రామదాసు సాహితీ కళా సేవా సంస్థ", "సుర్ధేపల్లి, నేలకొండపల్లి,", "ఖమ్మం జిల్లా, తెలంగాణ."],
 };
 
+export const whatsappUrl = "https://wa.me/918886910899";
+
 export const navItems = [
-  { label: "HOME", id: "home" },
-  { label: "ABOUT US", id: "about" },
-  { label: "ORGANIZATION DETAILS", id: "organization" },
-  { label: "SERVICES", id: "services" },
-  { label: "NAVACHITRIKA", id: "navachitrika" },
-  { label: "AWARDS", id: "awards" },
-  { label: "GALLERY", id: "gallery" },
-  { label: "CONTACT", id: "contact" },
-];
+  { label: "HOME", to: "/" },
+  { label: "ABOUT US", to: "/about" },
+  { label: "ORGANIZATION DETAILS", to: "/organization" },
+  { label: "SERVICES", to: "/services" },
+  { label: "NAVACHITRIKA", to: "/navachitrika" },
+  { label: "AWARDS", to: "/awards" },
+  { label: "GALLERY", to: "/gallery" },
+  { label: "CONTACT", to: "/contact" },
+] as const;
 
 export const services = [
   { te: "సాహిత్య కార్యక్రమాలు", icon: "feather" },
@@ -55,26 +57,45 @@ export const navachitrikaHighlights = [
 
 /**
  * Monthly issues of Navachitrika.
- * To add a new issue: add an entry with the Google Drive link (`url`).
- * Leave `url` as null for upcoming issues — the card renders as "COMING SOON".
+ * To publish a new issue: add an entry with `available: true` and its Google Drive
+ * link in `driveUrl`. Upcoming issues use `available: false` and render "COMING SOON".
  */
 export type Issue = {
-  monthEn: string;
-  titleTe: string;
-  cover: string;
-  url: string | null;
+  month: string;
+  year: number;
+  title: string;
+  coverImage: string;
+  driveUrl: string | null;
+  available: boolean;
 };
 
 export const issues: Issue[] = [
   {
-    monthEn: "AUGUST 2026",
-    titleTe: "నవచిత్రిక – ఆగస్టు సంచిక",
-    cover: book2.url,
-    url: null,
+    month: "AUGUST",
+    year: 2026,
+    title: "నవచిత్రిక – ఆగస్టు సంచిక",
+    coverImage: book2.url,
+    driveUrl: "https://drive.google.com/file/d/1lskfCOb9FgUDIIHFna1rmTs9TYzJVj49/view?usp=drivesdk",
+    available: true,
   },
-  { monthEn: "SEPTEMBER 2026", titleTe: "నవచిత్రిక – సెప్టెంబరు సంచిక", cover: book5.url, url: null },
-  { monthEn: "OCTOBER 2026", titleTe: "నవచిత్రిక – అక్టోబరు సంచిక", cover: book3.url, url: null },
+  {
+    month: "SEPTEMBER",
+    year: 2026,
+    title: "నవచిత్రిక – సెప్టెంబరు సంచిక",
+    coverImage: book5.url,
+    driveUrl: null,
+    available: false,
+  },
+  {
+    month: "OCTOBER",
+    year: 2026,
+    title: "నవచిత్రిక – అక్టోబరు సంచిక",
+    coverImage: book3.url,
+    driveUrl: null,
+    available: false,
+  },
 ];
+
 
 export const publications = [
   { url: book1.url, alt: "Telugu book cover: ఆలా మొదలైంది" },
