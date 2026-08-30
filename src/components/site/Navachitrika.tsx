@@ -3,7 +3,7 @@ import { issues, navachitrikaHighlights } from "@/data/site";
 import { Reveal, SectionHeading } from "./Reveal";
 
 export function Navachitrika() {
-  const feature = issues[0];
+  const feature = issues.find((i) => i.available) ?? issues[0];
 
   return (
     <section id="navachitrika" className="surface-maroon relative overflow-hidden py-24">
@@ -32,16 +32,16 @@ export function Navachitrika() {
           <Reveal>
             <div className="mx-auto w-full max-w-xs [perspective:1200px]">
               <div
-                className="card-3d relative rounded-r-2xl rounded-l-md"
+                className="card-3d relative rounded-l-md rounded-r-2xl"
                 style={{
                   transform: "rotateY(-16deg) rotateX(5deg)",
                   boxShadow: "var(--shadow-deep)",
                 }}
               >
                 <img
-                  src={feature?.cover}
+                  src={feature?.coverImage}
                   alt="Navachitrika magazine cover"
-                  className="w-full rounded-r-2xl rounded-l-md object-contain"
+                  className="w-full rounded-l-md rounded-r-2xl object-contain"
                 />
                 <span
                   className="absolute inset-y-0 left-0 w-3 rounded-l-md"
@@ -49,6 +49,18 @@ export function Navachitrika() {
                   aria-hidden
                 />
               </div>
+              {feature?.available && feature.driveUrl ? (
+                <a
+                  href={feature.driveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-premium mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[0.68rem] font-bold tracking-[0.2em] text-maroon-deep uppercase"
+                  style={{ background: "var(--gradient-gold)" }}
+                >
+                  Read {feature.month} Issue
+                  <ArrowUpRight size={15} />
+                </a>
+              ) : null}
             </div>
           </Reveal>
 
@@ -72,38 +84,46 @@ export function Navachitrika() {
           </Reveal>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-20">
           <Reveal>
             <p className="text-center text-[0.65rem] font-semibold tracking-[0.32em] text-gold uppercase">
-              Monthly Issues
+              Digital Magazine Shelf
             </p>
           </Reveal>
-          <div className="mt-8 grid gap-6 [perspective:1400px] md:grid-cols-3">
+          <div className="mt-10 grid gap-8 [perspective:1600px] md:grid-cols-3">
             {issues.map((issue, i) => (
-              <Reveal key={issue.monthEn} delay={i * 100}>
+              <Reveal key={`${issue.month}-${issue.year}`} delay={i * 100}>
                 <article
-                  className="card-3d glass-panel flex h-full flex-col rounded-2xl p-6"
+                  className="magazine-card glass-panel flex h-full flex-col rounded-2xl border border-gold/35 p-5"
                   style={{ boxShadow: "var(--shadow-deep)" }}
                 >
-                  <div className="flex items-center justify-between gap-3">
+                  <div className="overflow-hidden rounded-xl bg-maroon-deep/40 p-2">
+                    <img
+                      src={issue.coverImage}
+                      alt={`${issue.title} cover`}
+                      loading="lazy"
+                      className="mx-auto h-64 w-auto rounded-md object-contain shadow-[0_22px_44px_-18px_rgba(0,0,0,0.75)]"
+                    />
+                  </div>
+                  <div className="mt-5 flex items-center justify-between gap-3">
                     <span className="text-[0.62rem] font-bold tracking-[0.26em] text-gold uppercase">
-                      {issue.monthEn}
+                      {issue.month} {issue.year}
                     </span>
                     <BookOpen className="text-gold/70" size={20} />
                   </div>
-                  <h3 lang="te" className="mt-4 font-telugu text-lg text-ivory">
-                    {issue.titleTe}
+                  <h3 lang="te" className="mt-3 font-telugu text-lg text-ivory">
+                    {issue.title}
                   </h3>
-                  <div className="mt-auto pt-7">
-                    {issue.url ? (
+                  <div className="mt-auto pt-6">
+                    {issue.available && issue.driveUrl ? (
                       <a
-                        href={issue.url}
+                        href={issue.driveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-premium inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.65rem] font-bold tracking-[0.2em] text-maroon-deep uppercase"
                         style={{ background: "var(--gradient-gold)" }}
                       >
-                        Read {issue.monthEn.split(" ")[0]} Issue
+                        Read {issue.month} Issue
                         <ArrowUpRight size={14} />
                       </a>
                     ) : (
