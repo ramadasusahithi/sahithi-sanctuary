@@ -12,7 +12,14 @@ import {
 } from "lucide-react";
 import { Hero } from "@/components/site/Hero";
 import { Reveal, SectionHeading } from "@/components/site/Reveal";
-import { issues, org, publications, services, whatsappUrl } from "@/data/site";
+import {
+  galleryPhotos,
+  issues,
+  navachitrikaHeroUrl,
+  org,
+  services,
+  whatsappUrl,
+} from "@/data/site";
 
 const title = "Ramadasu Sahithi Kala Seva Samstha | Telugu Literary Trust";
 const description =
