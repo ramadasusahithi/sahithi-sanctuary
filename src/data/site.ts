@@ -115,7 +115,7 @@ export const issues: Issue[] = [
     month: "OCTOBER",
     year: 2026,
     title: "నవచిత్రిక – అక్టోబరు సంచిక",
-    coverImage: book3.url,
+    
     driveUrl: null,
     available: false,
   },
