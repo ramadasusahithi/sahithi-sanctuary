@@ -30,25 +30,23 @@ export function Navachitrika() {
 
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
-            <div className="mx-auto w-full max-w-xs [perspective:1200px]">
-              <div
-                className="card-3d relative rounded-l-md rounded-r-2xl"
-                style={{
-                  transform: "rotateY(-16deg) rotateX(5deg)",
-                  boxShadow: "var(--shadow-deep)",
-                }}
+            <div className="mx-auto w-full max-w-sm [perspective:1200px]">
+              <figure
+                className="card-3d relative overflow-hidden rounded-2xl border border-gold/35"
+                style={{ boxShadow: "var(--shadow-deep)" }}
               >
                 <img
-                  src={feature?.coverImage}
-                  alt="Navachitrika magazine cover"
-                  className="w-full rounded-l-md rounded-r-2xl object-contain"
+                  src={navachitrikaHeroUrl}
+                  alt="Decorative literary still life representing the Navachitrika magazine section"
+                  width={1280}
+                  height={960}
+                  loading="lazy"
+                  className="w-full object-cover"
                 />
-                <span
-                  className="absolute inset-y-0 left-0 w-3 rounded-l-md"
-                  style={{ background: "var(--gradient-gold)" }}
-                  aria-hidden
-                />
-              </div>
+                <figcaption className="bg-maroon-deep/70 px-4 py-2 text-center text-[0.58rem] font-semibold tracking-[0.18em] text-gold-soft uppercase">
+                  Decorative artwork — not an actual issue cover
+                </figcaption>
+              </figure>
               {feature?.available && feature.driveUrl ? (
                 <a
                   href={feature.driveUrl}
