@@ -12,7 +12,14 @@ import {
 } from "lucide-react";
 import { Hero } from "@/components/site/Hero";
 import { Reveal, SectionHeading } from "@/components/site/Reveal";
-import { issues, org, publications, services, whatsappUrl } from "@/data/site";
+import {
+  galleryPhotos,
+  issues,
+  navachitrikaHeroUrl,
+  org,
+  services,
+  whatsappUrl,
+} from "@/data/site";
 
 const title = "Ramadasu Sahithi Kala Seva Samstha | Telugu Literary Trust";
 const description =
@@ -139,18 +146,18 @@ function NavachitrikaPreview() {
         />
         <div className="mt-14 grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
-            <div className="mx-auto w-full max-w-[16rem] [perspective:1200px]">
+            <div className="mx-auto w-full max-w-sm [perspective:1200px]">
               <div
-                className="magazine-card rounded-l-md rounded-r-2xl"
-                style={{
-                  transform: "rotateY(-15deg) rotateX(5deg)",
-                  boxShadow: "var(--shadow-deep)",
-                }}
+                className="magazine-card overflow-hidden rounded-2xl border border-gold/35"
+                style={{ boxShadow: "var(--shadow-deep)" }}
               >
                 <img
-                  src={feature?.coverImage}
-                  alt="Latest Navachitrika magazine cover"
-                  className="w-full rounded-l-md rounded-r-2xl object-contain"
+                  src={navachitrikaHeroUrl}
+                  alt="Decorative literary still life representing the Navachitrika magazine"
+                  width={1280}
+                  height={960}
+                  loading="lazy"
+                  className="w-full object-cover"
                 />
               </div>
             </div>
@@ -196,7 +203,7 @@ function GalleryPreview() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading eyebrow="Visual archive" title="Gallery Preview" />
         <div className="mt-14 grid gap-6 [perspective:1400px] sm:grid-cols-2 lg:grid-cols-4">
-          {publications.slice(0, 4).map((p, i) => (
+          {galleryPhotos.slice(0, 4).map((p, i) => (
             <Reveal key={p.url} delay={i * 90}>
               <div
                 className="card-3d overflow-hidden rounded-2xl border border-gold/30 bg-card p-3"
@@ -206,7 +213,7 @@ function GalleryPreview() {
                   src={p.url}
                   alt={p.alt}
                   loading="lazy"
-                  className="w-full rounded-xl object-contain"
+                  className="aspect-[4/3] w-full rounded-xl object-cover"
                 />
               </div>
             </Reveal>

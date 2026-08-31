@@ -1,4 +1,15 @@
 import logo from "@/assets/logo.png.asset.json";
+import navachitrikaHero from "@/assets/navachitrika-hero.jpg";
+import event1 from "@/assets/event1.png.asset.json";
+import event2 from "@/assets/event2.png.asset.json";
+import event3 from "@/assets/event3.png.asset.json";
+import event4 from "@/assets/event4.png.asset.json";
+import event5 from "@/assets/event5.png.asset.json";
+import event6 from "@/assets/event6.png.asset.json";
+import event7 from "@/assets/event7.png.asset.json";
+import event8 from "@/assets/event8.png.asset.json";
+import event9 from "@/assets/event9.png.asset.json";
+import event10 from "@/assets/event10.png.asset.json";
 import book1 from "@/assets/book1.jpeg.asset.json";
 import book2 from "@/assets/book2.jpeg.asset.json";
 import book3 from "@/assets/book3.jpeg.asset.json";
@@ -8,6 +19,23 @@ import book6 from "@/assets/book6.jpeg.asset.json";
 import book7 from "@/assets/book7.jpeg.asset.json";
 
 export const logoUrl = logo.url;
+
+/** Original decorative artwork representing the Navachitrika magazine section (not a real cover). */
+export const navachitrikaHeroUrl = navachitrikaHero;
+
+/** Organization event, award ceremony and cultural programme photographs. */
+export const galleryPhotos = [
+  { url: event1.url, alt: "Award presentation at a literary felicitation programme" },
+  { url: event2.url, alt: "Book launch festival (పుస్తక ఆవిష్కరణ మహోత్సవము) with honoured guests" },
+  { url: event3.url, alt: "Group felicitation with commemorative memento at a literary programme" },
+  { url: event4.url, alt: "Writer receiving a national record certificate and trophy" },
+  { url: event5.url, alt: "Organizers with a young awardee at a literary event" },
+  { url: event6.url, alt: "Presentation of organization publications to police officials" },
+  { url: event7.url, alt: "Certificate of participation presented at national literary celebrations" },
+  { url: event8.url, alt: "Felicitation ceremony at Kala Sangeetha Natya Vedika auditorium" },
+  { url: event9.url, alt: "Organization members presenting a publication to a senior official" },
+  { url: event10.url, alt: "Book launch festival of Ramadasu Sahithi Kala Seva Samstha in Khammam district" },
+];
 
 export const org = {
   nameEn: "RAMADASU SAHITHI KALA SEVA SAMSTHA",
@@ -64,7 +92,6 @@ export type Issue = {
   month: string;
   year: number;
   title: string;
-  coverImage: string;
   driveUrl: string | null;
   available: boolean;
 };
@@ -74,7 +101,6 @@ export const issues: Issue[] = [
     month: "AUGUST",
     year: 2026,
     title: "నవచిత్రిక – ఆగస్టు సంచిక",
-    coverImage: book2.url,
     driveUrl: "https://drive.google.com/file/d/1lskfCOb9FgUDIIHFna1rmTs9TYzJVj49/view?usp=drivesdk",
     available: true,
   },
@@ -82,7 +108,6 @@ export const issues: Issue[] = [
     month: "SEPTEMBER",
     year: 2026,
     title: "నవచిత్రిక – సెప్టెంబరు సంచిక",
-    coverImage: book5.url,
     driveUrl: null,
     available: false,
   },
@@ -90,7 +115,7 @@ export const issues: Issue[] = [
     month: "OCTOBER",
     year: 2026,
     title: "నవచిత్రిక – అక్టోబరు సంచిక",
-    coverImage: book3.url,
+    
     driveUrl: null,
     available: false,
   },

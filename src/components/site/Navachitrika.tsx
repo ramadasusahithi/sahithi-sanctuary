@@ -1,5 +1,5 @@
 import { ArrowUpRight, BookOpen, Clock } from "lucide-react";
-import { issues, navachitrikaHighlights } from "@/data/site";
+import { issues, navachitrikaHeroUrl, navachitrikaHighlights } from "@/data/site";
 import { Reveal, SectionHeading } from "./Reveal";
 
 export function Navachitrika() {
@@ -30,25 +30,23 @@ export function Navachitrika() {
 
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
-            <div className="mx-auto w-full max-w-xs [perspective:1200px]">
-              <div
-                className="card-3d relative rounded-l-md rounded-r-2xl"
-                style={{
-                  transform: "rotateY(-16deg) rotateX(5deg)",
-                  boxShadow: "var(--shadow-deep)",
-                }}
+            <div className="mx-auto w-full max-w-sm [perspective:1200px]">
+              <figure
+                className="card-3d relative overflow-hidden rounded-2xl border border-gold/35"
+                style={{ boxShadow: "var(--shadow-deep)" }}
               >
                 <img
-                  src={feature?.coverImage}
-                  alt="Navachitrika magazine cover"
-                  className="w-full rounded-l-md rounded-r-2xl object-contain"
+                  src={navachitrikaHeroUrl}
+                  alt="Decorative literary still life representing the Navachitrika magazine section"
+                  width={1280}
+                  height={960}
+                  loading="lazy"
+                  className="w-full object-cover"
                 />
-                <span
-                  className="absolute inset-y-0 left-0 w-3 rounded-l-md"
-                  style={{ background: "var(--gradient-gold)" }}
-                  aria-hidden
-                />
-              </div>
+                <figcaption className="bg-maroon-deep/70 px-4 py-2 text-center text-[0.58rem] font-semibold tracking-[0.18em] text-gold-soft uppercase">
+                  Decorative artwork — not an actual issue cover
+                </figcaption>
+              </figure>
               {feature?.available && feature.driveUrl ? (
                 <a
                   href={feature.driveUrl}
@@ -97,13 +95,27 @@ export function Navachitrika() {
                   className="magazine-card glass-panel flex h-full flex-col rounded-2xl border border-gold/35 p-5"
                   style={{ boxShadow: "var(--shadow-deep)" }}
                 >
-                  <div className="overflow-hidden rounded-xl bg-maroon-deep/40 p-2">
-                    <img
-                      src={issue.coverImage}
-                      alt={`${issue.title} cover`}
-                      loading="lazy"
-                      className="mx-auto h-64 w-auto rounded-md object-contain shadow-[0_22px_44px_-18px_rgba(0,0,0,0.75)]"
+                  <div
+                    className="relative grid h-56 place-items-center overflow-hidden rounded-xl border border-gold/25 text-center"
+                    style={{ background: "var(--gradient-maroon)" }}
+                  >
+                    <span
+                      className="absolute inset-y-0 left-0 w-2"
+                      style={{ background: "var(--gradient-gold)" }}
+                      aria-hidden
                     />
+                    <div className="px-5">
+                      <p lang="te" className="font-telugu text-2xl text-gold-soft">
+                        నవచిత్రిక
+                      </p>
+                      <div className="gold-rule my-3" />
+                      <p className="text-[0.6rem] font-bold tracking-[0.28em] text-gold uppercase">
+                        {issue.month} {issue.year}
+                      </p>
+                      <p className="mt-2 text-[0.58rem] tracking-[0.16em] text-ivory/60 uppercase">
+                        Monthly Literary Magazine
+                      </p>
+                    </div>
                   </div>
                   <div className="mt-5 flex items-center justify-between gap-3">
                     <span className="text-[0.62rem] font-bold tracking-[0.26em] text-gold uppercase">
