@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import { logoUrl, org, publications } from "@/data/site";
+import { galleryPhotos, logoUrl, org, publications } from "@/data/site";
 import { Reveal, SectionHeading } from "./Reveal";
 
 const items = [
   { url: logoUrl, alt: `${org.nameEn} official emblem` },
+  ...galleryPhotos,
   ...publications,
 ];
 

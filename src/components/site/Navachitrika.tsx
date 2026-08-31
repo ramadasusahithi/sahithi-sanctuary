@@ -1,5 +1,5 @@
 import { ArrowUpRight, BookOpen, Clock } from "lucide-react";
-import { issues, navachitrikaHighlights } from "@/data/site";
+import { issues, navachitrikaHeroUrl, navachitrikaHighlights } from "@/data/site";
 import { Reveal, SectionHeading } from "./Reveal";
 
 export function Navachitrika() {
