@@ -92,7 +92,6 @@ export type Issue = {
   month: string;
   year: number;
   title: string;
-  coverImage: string;
   driveUrl: string | null;
   available: boolean;
 };
@@ -102,7 +101,6 @@ export const issues: Issue[] = [
     month: "AUGUST",
     year: 2026,
     title: "నవచిత్రిక – ఆగస్టు సంచిక",
-    coverImage: book2.url,
     driveUrl: "https://drive.google.com/file/d/1lskfCOb9FgUDIIHFna1rmTs9TYzJVj49/view?usp=drivesdk",
     available: true,
   },
@@ -110,7 +108,6 @@ export const issues: Issue[] = [
     month: "SEPTEMBER",
     year: 2026,
     title: "నవచిత్రిక – సెప్టెంబరు సంచిక",
-    coverImage: book5.url,
     driveUrl: null,
     available: false,
   },
