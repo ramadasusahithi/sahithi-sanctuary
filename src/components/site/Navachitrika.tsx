@@ -95,13 +95,27 @@ export function Navachitrika() {
                   className="magazine-card glass-panel flex h-full flex-col rounded-2xl border border-gold/35 p-5"
                   style={{ boxShadow: "var(--shadow-deep)" }}
                 >
-                  <div className="overflow-hidden rounded-xl bg-maroon-deep/40 p-2">
-                    <img
-                      src={issue.coverImage}
-                      alt={`${issue.title} cover`}
-                      loading="lazy"
-                      className="mx-auto h-64 w-auto rounded-md object-contain shadow-[0_22px_44px_-18px_rgba(0,0,0,0.75)]"
+                  <div
+                    className="relative grid h-56 place-items-center overflow-hidden rounded-xl border border-gold/25 text-center"
+                    style={{ background: "var(--gradient-maroon)" }}
+                  >
+                    <span
+                      className="absolute inset-y-0 left-0 w-2"
+                      style={{ background: "var(--gradient-gold)" }}
+                      aria-hidden
                     />
+                    <div className="px-5">
+                      <p lang="te" className="font-telugu text-2xl text-gold-soft">
+                        నవచిత్రిక
+                      </p>
+                      <div className="gold-rule my-3" />
+                      <p className="text-[0.6rem] font-bold tracking-[0.28em] text-gold uppercase">
+                        {issue.month} {issue.year}
+                      </p>
+                      <p className="mt-2 text-[0.58rem] tracking-[0.16em] text-ivory/60 uppercase">
+                        Monthly Literary Magazine
+                      </p>
+                    </div>
                   </div>
                   <div className="mt-5 flex items-center justify-between gap-3">
                     <span className="text-[0.62rem] font-bold tracking-[0.26em] text-gold uppercase">
