@@ -63,7 +63,27 @@ export const org = {
   addressTe: ["రామదాసు సాహితీ కళా సేవా సంస్థ", "సుర్ధేపల్లి, నేలకొండపల్లి,", "ఖమ్మం జిల్లా, తెలంగాణ."],
 };
 
-export const whatsappUrl = "https://wa.me/918886910899";
+const whatsappMessage = `🙏 నమస్కారం!
+
+రామదాసు సాహితీ కళా సేవా సంస్థ
+&
+నవచిత్రిక మాస పత్రిక
+
+కు సంబంధించిన సమాచారం కోసం సంప్రదిస్తున్నాను.
+దయచేసి నాకు అవసరమైన వివరాలను తెలియజేయగలరు.
+
+ధన్యవాదాలు🙏
+---
+
+Hello!
+
+I am contacting you regarding Ramadasu Sahiti Kala Seva Samstha and Navachitrika Monthly Magazine.
+
+Please share the required information.
+
+Thank You 🙏`;
+
+export const whatsappUrl = `https://wa.me/918886910899?text=${encodeURIComponent(whatsappMessage)}`;
 
 export const navItems = [
   { label: "HOME", to: "/" },
