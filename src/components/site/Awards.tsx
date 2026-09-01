@@ -1,6 +1,7 @@
 import { Trophy } from "lucide-react";
-import { publications } from "@/data/site";
 import { Reveal, SectionHeading } from "./Reveal";
+
+const awardSlots = [0, 1, 2];
 
 export function Awards() {
   return (
@@ -9,8 +10,8 @@ export function Awards() {
         <SectionHeading eyebrow="Recognition" title="Awards" te="సాహితీ పురస్కారాలు" />
 
         <div className="mt-16 grid gap-8 [perspective:1400px] md:grid-cols-3">
-          {publications.slice(0, 3).map((p, i) => (
-            <Reveal key={p.url} delay={i * 110}>
+          {awardSlots.map((i) => (
+            <Reveal key={i} delay={i * 110}>
               <article
                 className="card-3d group relative h-full overflow-hidden rounded-3xl border border-gold/35 bg-card p-6"
                 style={{ boxShadow: "var(--shadow-deep)" }}
@@ -26,14 +27,7 @@ export function Awards() {
                 >
                   <Trophy className="text-maroon-deep" size={24} />
                 </div>
-                <div className="relative mt-6 overflow-hidden rounded-xl bg-beige">
-                  <img
-                    src={p.url}
-                    alt={p.alt}
-                    loading="lazy"
-                    className="mx-auto h-64 w-auto object-contain transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+                <div className="relative mt-6 h-64 rounded-xl bg-beige/50" aria-hidden="true" />
                 <div className="gold-rule mt-6" />
               </article>
             </Reveal>
@@ -43,3 +37,4 @@ export function Awards() {
     </section>
   );
 }
+
