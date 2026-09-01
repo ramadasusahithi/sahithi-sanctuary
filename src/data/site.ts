@@ -1,52 +1,54 @@
-import logo from "@/assets/logo.png.asset.json";
+import logo from "@/assets/logo.png.png";
 import navachitrikaHero from "@/assets/navachitrika-hero.jpg";
-import event1 from "@/assets/event1.png.asset.json";
-import event2 from "@/assets/event2.png.asset.json";
-import event3 from "@/assets/event3.png.asset.json";
-import event4 from "@/assets/event4.png.asset.json";
-import event5 from "@/assets/event5.png.asset.json";
-import event6 from "@/assets/event6.png.asset.json";
-import event7 from "@/assets/event7.png.asset.json";
-import event8 from "@/assets/event8.png.asset.json";
-import event9 from "@/assets/event9.png.asset.json";
-import event10 from "@/assets/event10.png.asset.json";
-import event11 from "@/assets/event11.png.asset.json";
-import event12 from "@/assets/event12.png.asset.json";
-import event13 from "@/assets/event13.png.asset.json";
-import event14 from "@/assets/event14.png.asset.json";
-import event15 from "@/assets/event15.png.asset.json";
-import event16 from "@/assets/event16.png.asset.json";
-import book1 from "@/assets/book1.jpeg.asset.json";
-import book2 from "@/assets/book2.jpeg.asset.json";
-import book3 from "@/assets/book3.jpeg.asset.json";
-import book4 from "@/assets/book4.jpeg.asset.json";
-import book5 from "@/assets/book5.jpeg.asset.json";
-import book6 from "@/assets/book6.jpeg.asset.json";
-import book7 from "@/assets/book7.jpeg.asset.json";
+import event1 from "@/assets/event1.jpeg";
+import event2 from "@/assets/event2.jpeg";
+import event3 from "@/assets/event3.jpeg";
+import event4 from "@/assets/event4.jpeg";
+import event5 from "@/assets/event5.jpeg";
+import event6 from "@/assets/event6.jpeg";
+import event7 from "@/assets/event7.jpeg";
+import event8 from "@/assets/event8.jpeg";
+import event9 from "@/assets/event9.jpeg";
+import event10 from "@/assets/event10.jpeg";
+import event11 from "@/assets/event11.jpeg";
+import event12 from "@/assets/event12.jpeg";
+import event13 from "@/assets/event13.jpeg";
+import event14 from "@/assets/event14.jpeg";
+import event15 from "@/assets/event15.jpeg";
+import event16 from "@/assets/event16.jpeg";
+import event17 from "@/assets/event17.jpeg";
+import book1 from "@/assets/book1.jpeg";
+import book2 from "@/assets/book2.jpeg";
+import book3 from "@/assets/book3.jpeg";
+import book4 from "@/assets/book4.jpeg";
+import book5 from "@/assets/book5.jpeg";
+import book6 from "@/assets/book6.jpeg";
+import book7 from "@/assets/book7.jpeg";
 
-export const logoUrl = logo.url;
+export const logoUrl = logo;
 
 /** Original decorative artwork representing the Navachitrika magazine section (not a real cover). */
 export const navachitrikaHeroUrl = navachitrikaHero;
 
 /** Organization event, award ceremony and cultural programme photographs. */
 export const galleryPhotos = [
-  { url: event1.url, alt: "Award presentation at a literary felicitation programme" },
-  { url: event2.url, alt: "Book launch festival (పుస్తక ఆవిష్కరణ మహోత్సవము) with honoured guests" },
-  { url: event3.url, alt: "Group felicitation with commemorative memento at a literary programme" },
-  { url: event4.url, alt: "Writer receiving a national record certificate and trophy" },
-  { url: event5.url, alt: "Organizers with a young awardee at a literary event" },
-  { url: event6.url, alt: "Presentation of organization publications to police officials" },
-  { url: event7.url, alt: "Certificate of participation presented at national literary celebrations" },
-  { url: event8.url, alt: "Felicitation ceremony at Kala Sangeetha Natya Vedika auditorium" },
-  { url: event9.url, alt: "Organization members presenting a publication to a senior official" },
-  { url: event10.url, alt: "Book launch festival of Ramadasu Sahithi Kala Seva Samstha in Khammam district" },
-  { url: event11.url, alt: "Felicitation of a writer with shawl and honour badge at a literary programme" },
-  { url: event12.url, alt: "Second annual celebration (ద్వితీయ వార్షికోత్సవం) and book launch felicitation" },
-  { url: event13.url, alt: "Presentation of the book 'నాలుగో సింహం' to a senior police official" },
-  { url: event14.url, alt: "Organization representative honoured with a shawl by a police official" },
-  { url: event15.url, alt: "Organizers seated on the dais at an annual literary celebration" },
-  { url: event16.url, alt: "Group photograph at the 'త్రిగుణ' book launch mahotsavam" },
+  { url: event1, alt: "Award presentation at a literary felicitation programme" },
+  { url: event2, alt: "Book launch festival (పుస్తక ఆవిష్కరణ మహోత్సవము) with honoured guests" },
+  { url: event3, alt: "Group felicitation with commemorative memento at a literary programme" },
+  { url: event4, alt: "Writer receiving a national record certificate and trophy" },
+  { url: event5, alt: "Organizers with a young awardee at a literary event" },
+  { url: event6, alt: "Presentation of organization publications to police officials" },
+  { url: event7, alt: "Certificate of participation presented at national literary celebrations" },
+  { url: event8, alt: "Felicitation ceremony at Kala Sangeetha Natya Vedika auditorium" },
+  { url: event9, alt: "Organization members presenting a publication to a senior official" },
+  { url: event10, alt: "Book launch festival of Ramadasu Sahithi Kala Seva Samstha in Khammam district" },
+  { url: event11, alt: "Felicitation of a writer with shawl and honour badge at a literary programme" },
+  { url: event12, alt: "Second annual celebration (ద్వితీయ వార్షికోత్సవం) and book launch felicitation" },
+  { url: event13, alt: "Presentation of the book 'నాలుగో సింహం' to a senior police official" },
+  { url: event14, alt: "Organization representative honoured with a shawl by a police official" },
+  { url: event15, alt: "Organizers seated on the dais at an annual literary celebration" },
+  { url: event16, alt: "Group photograph at the 'త్రిగుణ' book launch mahotsavam" },
+  { url: event17, alt: "Organizational literary event and public felicitation photograph" },
 ];
 
 export const org = {
@@ -135,13 +137,13 @@ export const issues: Issue[] = [
 
 
 export const publications = [
-  { url: book1.url, alt: "Telugu book cover: ఆలా మొదలైంది" },
-  { url: book2.url, alt: "Telugu book cover: రామదూత రామకథ" },
-  { url: book3.url, alt: "Telugu book cover: సన్యాస్ కృష్ణ" },
-  { url: book4.url, alt: "Telugu book cover: నాలుగో సింహం" },
-  { url: book5.url, alt: "Telugu book cover: జీవన వేదం" },
-  { url: book6.url, alt: "Telugu book cover: ఎక్కిన మెట్లెన్ని?" },
-  { url: book7.url, alt: "Telugu book cover: పాలేరు నుంచి పర్ణశాల వరకు" },
+  { url: book1, alt: "Telugu book cover: ఆలా మొదలైంది" },
+  { url: book2, alt: "Telugu book cover: రామదూత రామకథ" },
+  { url: book3, alt: "Telugu book cover: సన్యాస్ కృష్ణ" },
+  { url: book4, alt: "Telugu book cover: నాలుగో సింహం" },
+  { url: book5, alt: "Telugu book cover: జీవన వేదం" },
+  { url: book6, alt: "Telugu book cover: ఎక్కిన మెట్లెన్ని?" },
+  { url: book7, alt: "Telugu book cover: పాలేరు నుంచి పర్ణశాల వరకు" },
 ];
 
 export const socials = [

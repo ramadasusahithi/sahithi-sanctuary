@@ -32,18 +32,18 @@ export function Navbar() {
           : "bg-maroon-deep/35 backdrop-blur-sm"
       }`}
     >
-      <nav className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-        <Link to="/" className="flex min-w-0 items-center gap-3">
+      <nav className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-3 py-2.5 sm:px-6 sm:py-3">
+        <Link to="/" className="flex min-w-0 max-w-[calc(100%-3.5rem)] items-center gap-2.5 sm:gap-3">
           <img
             src={logoUrl}
             alt={`${org.nameEn} logo`}
-            className="h-12 w-12 shrink-0 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]"
+            className="h-10 w-10 shrink-0 drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)] sm:h-12 sm:w-12"
           />
           <span className="min-w-0">
-            <span className="block truncate text-[0.68rem] font-semibold tracking-[0.24em] text-gold uppercase">
+            <span className="block truncate text-[0.58rem] font-semibold tracking-[0.18em] text-gold uppercase sm:text-[0.68rem] sm:tracking-[0.24em]">
               Ramadasu Sahithi
             </span>
-            <span lang="te" className="block truncate text-sm font-semibold text-ivory/90">
+            <span lang="te" className="block truncate text-xs font-semibold text-ivory/90 sm:text-sm">
               కళా సేవా సంస్థ
             </span>
           </span>
@@ -74,7 +74,7 @@ export function Navbar() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="ml-auto grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-gold/40 bg-maroon/70 text-gold backdrop-blur xl:hidden"
+          className="ml-auto grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-gold/40 bg-maroon/70 text-gold backdrop-blur transition-colors hover:bg-maroon xl:hidden sm:h-11 sm:w-11"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -82,7 +82,7 @@ export function Navbar() {
 
       {open ? (
         <div className="border-t border-gold/20 bg-maroon-deep/95 backdrop-blur-xl xl:hidden">
-          <ul className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
+          <ul className="mx-auto max-w-7xl space-y-1 px-3 py-3 sm:px-6">
             {navItems.map((item) => {
               const active = isActive(item.to);
               return (
@@ -90,7 +90,7 @@ export function Navbar() {
                   <Link
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className={`block border-b border-gold/10 py-3 text-xs font-semibold tracking-[0.2em] uppercase last:border-b-0 ${
+                    className={`block rounded-lg border-b border-gold/10 px-2 py-3 text-[0.66rem] font-semibold tracking-[0.18em] uppercase last:border-b-0 ${
                       active ? "text-gold" : "text-ivory/85 hover:text-gold"
                     }`}
                   >

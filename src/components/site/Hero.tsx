@@ -126,14 +126,14 @@ export function Hero() {
             <p className="text-[0.65rem] font-semibold tracking-[0.28em] text-gold uppercase">
               Publications
             </p>
-            <div className="mt-3 flex gap-3">
-              {publications.slice(0, 3).map((p, i) => (
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-start">
+              {publications.slice(0, 5).map((p, i) => (
                 <img
                   key={p.url}
                   src={p.url}
                   alt={p.alt}
                   loading="lazy"
-                  className="h-28 w-auto rounded-md object-contain shadow-[0_16px_30px_-12px_rgba(0,0,0,0.7)]"
+                  className="h-24 w-full rounded-md object-contain shadow-[0_16px_30px_-12px_rgba(0,0,0,0.7)] transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.04] sm:h-28 sm:w-auto"
                   style={{ transform: `translateZ(${i * 12}px) rotate(${i * 2 - 2}deg)` }}
                 />
               ))}

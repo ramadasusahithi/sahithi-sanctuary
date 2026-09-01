@@ -224,6 +224,48 @@
   }
 }
 
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 4.25rem;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .card-3d {
+    transform: none !important;
+  }
+
+  .btn-premium {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-premium {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  section {
+    padding-top: 5.5rem !important;
+    padding-bottom: 5.5rem !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

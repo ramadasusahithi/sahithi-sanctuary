@@ -9,6 +9,11 @@ const items = [
   ...publications,
 ];
 
+const gallerySections = [
+  { title: "EVENTS & ACTIVITIES", items: galleryPhotos, offset: 1 },
+  { title: "BOOKS & PUBLICATIONS", items: publications, offset: 1 + galleryPhotos.length },
+];
+
 export function Gallery() {
   const [active, setActive] = useState<number | null>(null);
 
@@ -28,26 +33,68 @@ export function Gallery() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading eyebrow="Visual archive" title="Gallery" />
 
-        <div className="mt-16 columns-1 gap-6 [column-fill:balance] sm:columns-2 lg:columns-3">
-          {items.map((item, i) => (
-            <div key={item.url} className="mb-6 break-inside-avoid [perspective:1200px]">
-              <Reveal delay={(i % 3) * 90}>
-                <button
-                  type="button"
-                  onClick={() => setActive(i)}
-                  className="card-3d group block w-full overflow-hidden rounded-2xl border border-gold/30 bg-card p-3"
-                  style={{ boxShadow: "0 24px 48px -30px oklch(0.24 0.09 22 / 0.5)" }}
-                >
-                  <span className="block overflow-hidden rounded-xl">
-                    <img
-                      src={item.url}
-                      alt={item.alt}
-                      loading="lazy"
-                      className="w-full object-contain transition-transform duration-700 group-hover:scale-[1.06]"
-                    />
-                  </span>
-                </button>
-              </Reveal>
+        <div className="mt-10 mb-8">
+          <div className="mx-auto mb-6 max-w-fit rounded-full border border-gold/40 bg-maroon-deep/80 px-5 py-2 text-center text-xs font-semibold tracking-[0.24em] text-gold uppercase shadow-[0_16px_40px_-20px_rgba(0,0,0,0.7)]">
+            Organization Emblem
+          </div>
+          <div className="mx-auto max-w-[280px]">
+            <button
+              type="button"
+              onClick={() => setActive(0)}
+              className="card-3d group block w-full overflow-hidden rounded-2xl border border-gold/30 bg-card p-3"
+              style={{ boxShadow: "0 24px 48px -30px oklch(0.24 0.09 22 / 0.5)" }}
+            >
+              <span className="block overflow-hidden rounded-xl">
+                <img
+                  src={items[0].url}
+                  alt={items[0].alt}
+                  loading="lazy"
+                  className="w-full object-contain transition-transform duration-700 group-hover:scale-[1.06]"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div className="space-y-16">
+          {gallerySections.map((section) => (
+            <div key={section.title}>
+              <div className="mb-6 flex items-center justify-between gap-4 border-b border-gold/25 pb-3">
+                <h3 className="text-xl font-semibold tracking-[0.18em] text-maroon-deep uppercase sm:text-2xl">
+                  {section.title}
+                </h3>
+                <span className="text-xs font-medium tracking-[0.26em] text-gold/80 uppercase">
+                  {section.items.length} image{section.items.length > 1 ? "s" : ""}
+                </span>
+              </div>
+
+              <div className="columns-1 gap-6 [column-fill:balance] sm:columns-2 lg:columns-3">
+                {section.items.map((item, i) => {
+                  const itemIndex = section.offset + i;
+                  return (
+                    <div key={`${section.title}-${item.url}`} className="mb-6 break-inside-avoid [perspective:1200px]">
+                      <Reveal delay={(i % 3) * 90}>
+                        <button
+                          type="button"
+                          onClick={() => setActive(itemIndex)}
+                          className="card-3d group block w-full overflow-hidden rounded-2xl border border-gold/30 bg-card p-3"
+                          style={{ boxShadow: "0 24px 48px -30px oklch(0.24 0.09 22 / 0.5)" }}
+                        >
+                          <span className="block overflow-hidden rounded-xl">
+                            <img
+                              src={item.url}
+                              alt={item.alt}
+                              loading="lazy"
+                              className={`w-full transition-transform duration-700 group-hover:scale-[1.06] ${section.title === "BOOKS & PUBLICATIONS" ? "object-contain" : "object-cover"}`}
+                              style={section.title === "BOOKS & PUBLICATIONS" ? { minHeight: "320px", maxHeight: "520px" } : undefined}
+                            />
+                          </span>
+                        </button>
+                      </Reveal>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           ))}
         </div>
