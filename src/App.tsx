@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
@@ -41,9 +40,9 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="flex min-h-screen flex-col bg-ivory">
+        <div className="flex min-h-0 flex-col bg-ivory overflow-x-hidden">
           <Navbar />
-          <main className="flex-1">
+          <main className="w-full min-h-0">
             <PageTransition>
               <Routes>
                 <Route path="/" element={<IndexPage />} />
@@ -60,7 +59,6 @@ export function App() {
           </main>
           <Footer />
           <WhatsAppButton />
-          <Toaster position="top-right" richColors />
         </div>
       </BrowserRouter>
     </QueryClientProvider>

@@ -233,6 +233,10 @@
     overflow-x: clip;
   }
 
+  footer {
+    margin-top: auto;
+  }
+
   h1,
   h2,
   h3,

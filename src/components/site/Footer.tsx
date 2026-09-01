@@ -4,10 +4,10 @@ import { logoUrl, navItems, org, socials } from "@/data/site";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-maroon-deep pt-16 pb-8 text-ivory">
+    <footer className="relative mt-auto overflow-hidden bg-maroon-deep pt-10 pb-5 text-ivory md:pt-16 md:pb-8">
       <div className="gold-rule" />
-      <div className="mx-auto max-w-7xl px-4 pt-12 sm:px-6">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_1fr]">
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 md:pt-12">
+        <div className="grid gap-8 sm:gap-10 md:gap-12 lg:grid-cols-[1.3fr_0.8fr_1fr]">
           <div>
             <div className="flex min-w-0 items-center gap-4">
               <img src={logoUrl} alt={`${org.nameEn} logo`} className="h-16 w-16 shrink-0" />
