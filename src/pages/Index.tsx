@@ -1,10 +1,13 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, MessageCircle } from "lucide-react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
+  ArrowRight,
+  ArrowUpRight,
   Award,
   BookMarked,
   Feather,
   Heart,
+  MessageCircle,
   Mic,
   PenTool,
   ScrollText,
@@ -20,24 +23,6 @@ import {
   services,
   whatsappUrl,
 } from "@/data/site";
-
-const title = "Ramadasu Sahithi Kala Seva Samstha | Telugu Literary Trust";
-const description =
-  "ISO-recognised Telugu literary and cultural organisation from Khammam — literary events, poetry contests, awards, publications and the monthly magazine Navachitrika.";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
-  component: Index,
-});
 
 const icons = {
   feather: Feather,
@@ -264,7 +249,11 @@ function ContactCta() {
   );
 }
 
-function Index() {
+export default function IndexPage() {
+  useEffect(() => {
+    document.title = "Ramadasu Sahithi Kala Seva Samstha | Telugu Literary Trust";
+  }, []);
+
   return (
     <>
       <Hero />

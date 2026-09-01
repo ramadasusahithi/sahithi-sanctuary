@@ -1,5 +1,5 @@
 import { Instagram, Mail, Phone, Youtube } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { logoUrl, navItems, org, socials } from "@/data/site";
 
 export function Footer() {

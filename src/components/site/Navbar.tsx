@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { logoUrl, navItems, org } from "@/data/site";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -18,6 +18,11 @@ export function Navbar() {
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  const isActive = (to: string) => {
+    if (to === "/") return pathname === "/";
+    return pathname.startsWith(to);
+  };
 
   return (
     <header
@@ -45,21 +50,23 @@ export function Navbar() {
         </Link>
 
         <ul className="hidden items-center gap-1 xl:flex">
-          {navItems.map((item) => (
-            <li key={item.to}>
-              <Link
-                to={item.to}
-                activeOptions={{ exact: item.to === "/" }}
-                className="relative block rounded-md px-3 py-2 text-[0.7rem] font-semibold tracking-[0.16em] text-ivory/80 uppercase transition-colors hover:text-gold"
-                activeProps={{
-                  className:
-                    "relative block rounded-md px-3 py-2 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-gold bg-gold/10 ring-1 ring-gold/40",
-                }}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const active = isActive(item.to);
+            return (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  className={`relative block rounded-md px-3 py-2 text-[0.7rem] font-semibold tracking-[0.16em] uppercase transition-colors ${
+                    active
+                      ? "bg-gold/10 text-gold ring-1 ring-gold/40"
+                      : "text-ivory/80 hover:text-gold"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <button
@@ -76,22 +83,22 @@ export function Navbar() {
       {open ? (
         <div className="border-t border-gold/20 bg-maroon-deep/95 backdrop-blur-xl xl:hidden">
           <ul className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
-            {navItems.map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  activeOptions={{ exact: item.to === "/" }}
-                  onClick={() => setOpen(false)}
-                  className="block border-b border-gold/10 py-3 text-xs font-semibold tracking-[0.2em] text-ivory/85 uppercase last:border-b-0"
-                  activeProps={{
-                    className:
-                      "block border-b border-gold/10 py-3 text-xs font-semibold tracking-[0.2em] uppercase text-gold last:border-b-0",
-                  }}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const active = isActive(item.to);
+              return (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className={`block border-b border-gold/10 py-3 text-xs font-semibold tracking-[0.2em] uppercase last:border-b-0 ${
+                      active ? "text-gold" : "text-ivory/85 hover:text-gold"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : null}

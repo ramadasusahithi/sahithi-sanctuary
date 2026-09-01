@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { logoUrl, org, publications } from "@/data/site";
 
 const teluguGlyphs = ["అ", "క", "మ", "ద", "సా", "హి", "త్య", "ర"];
@@ -55,7 +55,8 @@ export function Hero() {
 
       <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-4 pt-28 pb-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:pt-32">
         <div>
-          <div className="glass-panel animate-sheen inline-flex items-center gap-3 rounded-full px-4 py-2"
+          <div
+            className="glass-panel animate-sheen inline-flex items-center gap-3 rounded-full px-4 py-2"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, oklch(0.79 0.14 84 / 0.18), oklch(0.92 0.09 92 / 0.35), oklch(0.79 0.14 84 / 0.18))",

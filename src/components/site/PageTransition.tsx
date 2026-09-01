@@ -1,8 +1,8 @@
-import { useRouterState } from "@tanstack/react-router";
+import { useLocation } from "react-router-dom";
 import type { ReactNode } from "react";
 
 export function PageTransition({ children }: { children: ReactNode }) {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { pathname } = useLocation();
   return (
     <div key={pathname} className="page-enter">
       {children}
