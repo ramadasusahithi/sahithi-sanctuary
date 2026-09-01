@@ -10,6 +10,12 @@ import event7 from "@/assets/event7.png.asset.json";
 import event8 from "@/assets/event8.png.asset.json";
 import event9 from "@/assets/event9.png.asset.json";
 import event10 from "@/assets/event10.png.asset.json";
+import event11 from "@/assets/event11.png.asset.json";
+import event12 from "@/assets/event12.png.asset.json";
+import event13 from "@/assets/event13.png.asset.json";
+import event14 from "@/assets/event14.png.asset.json";
+import event15 from "@/assets/event15.png.asset.json";
+import event16 from "@/assets/event16.png.asset.json";
 import book1 from "@/assets/book1.jpeg.asset.json";
 import book2 from "@/assets/book2.jpeg.asset.json";
 import book3 from "@/assets/book3.jpeg.asset.json";
@@ -35,6 +41,12 @@ export const galleryPhotos = [
   { url: event8.url, alt: "Felicitation ceremony at Kala Sangeetha Natya Vedika auditorium" },
   { url: event9.url, alt: "Organization members presenting a publication to a senior official" },
   { url: event10.url, alt: "Book launch festival of Ramadasu Sahithi Kala Seva Samstha in Khammam district" },
+  { url: event11.url, alt: "Felicitation of a writer with shawl and honour badge at a literary programme" },
+  { url: event12.url, alt: "Second annual celebration (ద్వితీయ వార్షికోత్సవం) and book launch felicitation" },
+  { url: event13.url, alt: "Presentation of the book 'నాలుగో సింహం' to a senior police official" },
+  { url: event14.url, alt: "Organization representative honoured with a shawl by a police official" },
+  { url: event15.url, alt: "Organizers seated on the dais at an annual literary celebration" },
+  { url: event16.url, alt: "Group photograph at the 'త్రిగుణ' book launch mahotsavam" },
 ];
 
 export const org = {
